@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script>
     //PROBLEMA: Vínculo empregatício
     //Peça para o usuário informar qual a sua remuneração mensal (salário). Peça também para o usuário informar qual cargo que ocupa e quantas horas trabalha por dia. Considere 20 dias de trabalho no mês.
@@ -7,9 +8,38 @@
     //Se o usuário for "Programador" e trabalhar mais que 8 horas diárias, o programa deverá calcular um adicional de 30% (30/100) na sua remuneração. Apresente também quanto recebe por hora, já com o adicional previsto.
 
     //ENTRADA
-
-
+    const funcao = prompt(`Digite a sua função: `).toUpperCase();
+    const horas = Number((prompt(`Digite quantas horas trabalha ao dia: `)).replace(",", "."));
+    const salario = Number((prompt(`Digite o seu salário`)).replace(",", "."));
+    let apoio;
+    let outro;
     //PROCESSAMENTO
+    if (funcao == "ESTAGIÁRIO"){
+        if (horas <= 6){
+            apoio = (salario / 20) / horas;
+            alert((`R$ ${apoio} é o seu salário por hora `))
+        }
+        else {
+            outro = salario + (salario * 0.5);
+            apoio = (outro / 20) / horas;
+            alert(`Precisa ser contratado.`);
+            document.write((`O seu salário , por hora é R$ ${apoio.toFixed(2)}`).replace(".", ","));
+        }
+    }
+    else if (funcao == "PROGRAMADOR") {
+        if (horas <= 8){
+            apoio = (salario / 20) / horas;
+            alert((`R$ ${apoio.toFixed(2)} é o seu salário por hora `))
+        }
+        else {
+            outro = salario + (salario * 0.3);
+            apoio = (outro / 20) / horas;
+            document.write((`O seu salário , por hora é R$ ${apoio.toFixed(2)}`).replace(".", ","));
+        }
+    }
+    else {
+        alert(`Caso inválido`);
+    }
 
 
     //SAÍDA

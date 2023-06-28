@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script>
     //PROBLEMA: Compra na Feira
     //Considere que a pessoa foi até a feira e realizou algumas compras, sendo:
@@ -9,9 +10,33 @@
     //Calcule o custo total dos alimentos e verifique se há dinheiro suficiente para realizar a compra, indicando se sobrará ou faltará dinheiro, e também apresentando qual foi a quantia que sobrou ou faltou para realizar a compra. Apresente também na tela o valor total da compra.
 
     //ENTRADA
+    const mamao = Number((prompt(`Digite o preço da unidade de mamão: `)).replace(",", "."));
+    const melancia = Number((prompt(`Digite o preço do quilograma da melancia: `)).replace(",", "."));
+    const abacate = Number((prompt(`Digite o preço do abacate por unidade: `)).replace(",", "."));
+    const cebola = Number((prompt(`Digite o preço do quilograma da cebola: `)).replace(",", "."));
+    const quanto = Number((prompt(`Informe quanto possui: `)).replace(",", "."));
+    const soma = (abacate * 4) + (melancia * 3) + (abacate * 4) + (cebola * 1.1);
+    let apoio;
 
 
     //PROCESSAMENTO
+    if (soma > quanto) {
+        apoio = soma - quanto;
+        alert((`R$ ${apoio.toFixed(2)} é o necessário para completar a conta`).replace(".", ","));
+    }
+    else if (quanto >= soma) {
+       if (quanto == soma) {
+        alert(`Não sobrou nem faltou`);
+       }
+       else {
+        apoio = quanto - soma;
+        alert((`Sobrou R$ ${apoio.toFixed(2)}`).replace(".", ","));
+       }
+    }
+    else {
+        alert(`Caso inválido`);
+    }
+
 
 
     //SAÍDA

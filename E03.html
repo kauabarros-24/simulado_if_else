@@ -1,15 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script>
     //PROBLEMA: Viajar para algum lugar
     //Peça para o usuário informar para qual estado deseja realizar a viagem. (Rio Grande do Sul-RS ou Minas Gerais-MG). Peça também para informar quantos dias ficará em viagem. O usuário também deverá informar "quantos dinheiros" (R$) possui para gastar na viagem.
-    
+
     //Considere que o custo diário de viagem para "RS" será de R$ 180,00 (180) e o custo diário de viagem para "MG" será de R$ 210,00 (210).
-    
+
     //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
 
     //ENTRADA
+    const destino = prompt(`Informe para qual estado deseja viajar: `).toUpperCase();
+    const dinheiro = Number((prompt(`Informe quantos reais possui para viajar`)).replace(",", "."));
 
+    const diar = dinheiro / 180;
+    const diam = dinheiro / 210;
+    const RS = diar * 180;
+    const MG = diam * 210;
 
     //PROCESSAMENTO
+    if (destino == "RIO GRANDE DO SUL" || destino == "RS") {
+        if (dinheiro < 180) {
+            alert(`Sem férias`);
+        }
+        else {
+            alert((`${diar.toFixed(1)} será a quantidade de dias que poderá ficar em seu destino, custando R$ ${RS.toFixed(2)}`).replace(".", ","));
+        }
+
+    }
+    else if (destino == "MINAS GERAIS" || destino == "MG") {
+        if (210 > dinheiro) {
+            alert(`Sem férias`);
+        }
+        else {
+            alert((`${diam.toFixed(1)} dias será a quantidade de dias que poderá ficar em seu destino,
+            custando R$ ${MG.toFixed(2)}`).replace(".", ","));
+        }
+    }
+    else {
+        alert(`Caso inválido`);
+    }
+
 
 
     //SAÍDA

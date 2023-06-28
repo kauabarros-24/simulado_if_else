@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <script>
     //PROBLEMA
     /*
@@ -5,15 +6,40 @@
     Considere que os procedimentos de baixa complexidade consomem 15 minutos, os de média complexidade consomem 40 minutos e os de alta complexidade consomem 75 minutos.
     Calcule o tempo total que o veterinário deverá trabalhar para realizar todos os atendimentos no dia.
     Se o tempo de trabalho não ultrapassar as 8 horas, o salário do veterinário será R$ 50,00 a hora. Caso o tempo de trabalho estiver entre 8 e 10 horas, o preço da hora será de R$ 75,00. Ultrapassando as 10 horas, o preço da hora será de R$ 90,00.
-    Apresente em tela as horas e minutos trabalhados e o valor total que o veterinário receberá.
+    Apresente em tela as horas e  trabalhados e o valor total que o veterinário receberá.
     */
 
     //ENTRADA
+    const baixa = Number(prompt(`Digite quantas consultas de baixa complexidade atende por dia`));
+    const media = Number(prompt(`Digite quantas consultas de média complexidade atende por dia`));
+    const alta = Number(prompt(`Digite quantas consultas de alta complexidade atende por dia`));
+    const soma = (baixa * 15) + (media * 40) + (alta * 75);
+    const coversao = soma / 60;
 
 
+    let apoio;
     //PROCESSAMENTO
+    if (coversao <= 8) {
+        apoio = coversao * 50;
+        alert((`Você receberá R$ ${apoio.toFixed(2)} pelo seu trabalho, pois trabalhou por ${coversao.toFixed(1)} horas`).replace(".", ","));
 
-    
+
+    }
+    else if (coversao > 8 && coversao <= 10) {
+        apoio = coversao * 75;
+        alert((`Você trabalhou por ${coversao.toFixed(1)} horas, recebendo R$ ${apoio.toFixed(2)} pelo seu trabalho`).replace(".", ","));
+    }
+    else if (coversao > 10) {
+        apoio = coversao * 90;
+        alert((`Você ganhou R$ ${apoio.toFixed(2)} pelo seu esmeroso trabalho de ${coversao.toFixed(1)}horas`).replace(".", ","));
+
+    }
+    else {
+        alert(`Caso inválido`);
+    }
+
+
+
     //SAÍDA
 
 
